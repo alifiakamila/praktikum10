@@ -70,7 +70,7 @@
 		}
 
 		if (empty($_POST["telp"])) {
-	$telp = "Telp tidak boleh kosong";
+	$error_telp = "Telp tidak boleh kosong";
 }
 else{
 	$telp=cek_input($_POST["telp"]);
