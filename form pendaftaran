@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<style type="text/css">
+		.warning {color: #FF0000;}
+	</style>
+</head>
+<body>
+	<?php
+	$error_namalengkap = "";
+	$error_namapanggil = "";
+	$error_jk = "";
+	$error_nisn = "";
+	$error_nik = "";
+	$error_tempat = "";
+	$error_tgllahir = "";
+	$error_noakta = "";
+	$error_kwn = "";
+	$error_agama = "";
+	$error_jmlhsdr = "";
+	$error_bahasa = "";
+	$error_berat = "";
+	$error_tinggi = "";
+	$error_alamat = "";
+	$error_tinggal = "";
+	$error_jarak = "";
+	$error_trans = "";
+	$error_notelp = "";
+	$error_email = "";
+
+
+	$error_ayah = "";
+	$error_nikayah = "";
+	$error_ibu = "";
+	$error_nikibu = "";
+	$error_kerjaayah = "";
+	$error_kerjaibu = "";
+	$error_tinggalayah = "";
+	$error_tinggalibu = "";
+	$error_noibu = "";
+	$error_noayah = "";
+
+
+
+	$namalengkap = "";
+	$namapanggil = "";
+	$jk = "";
+	$nisn = "";
+	$nik = "";
+	$tempat = "";
+	$tgllahir = "";
+	$noakta = "";
+	$kwn = "";
+	$agama = "";
+	$jmlhsdr = "";
+	$bahasa = "";
+	$berat = "";
+	$tinggi = "";
+	$alamat = "";
+	$tinggal = "";
+	$jarak = "";
+	$trans = "";
+	$notelp = "";
+	$email = "";
+
+
+	$ayah = "";
+	$nikayah = "";
+	$ibu = "";
+	$nikibu = "";
+	$kerjaayah = "";
+	$kerjaibu = "";
+	$tinggalayah = "";
+	$tinggalibu = "";
+	$noibu = "";
+	$noayah = "";
+
+	if ($_SERVER ["REQUEST_METHOD"] == "POST") {
+
+		if (empty ($_POST ["namalengkap"]))
+		{
+			$error_namalengkap = "Nama Lengkap tidak boleh kosong";
+		}
+		else 
+		{
+			$namalengkap = cek_input ($_POST["namalengkap"]);
+			if (!preg_match("/^[a-zA-Z]*$/", $namalengkap))
+			{
+				$error_namalengkap = "Inputan Hanya boleh huruf dan spasi";
+			}
+		}
+
+
+
+
+		if (empty ($_POST ["namapanggil"]))
+		{
+			$error_namapanggil = "Nama Panggilan tidak boleh kosong";
+		}
+		else 
+		{
+			$namapanggil = cek_input ($_POST["namapanggil"]);
+			if (!preg_match("/^[a-zA-Z]*$/", $namapanggil))
+			{
+				$error_namapanggil = "Inputan Hanya boleh huruf dan spasi";
+			}
+		}
+
+
+
+
+		if (empty($_POST["jk"]))
+		{
+			$error_jk = "Jenis Kelamin tidak boleh kosong";
+		}
+		else
+		{
+			$jk = cek_input($_POST["jk"]);
+		}
+
+
+
+
+		if (empty($_POST["nisn"]))
+		{
+			$error_nisn = "NISN tidak boleh kosong";
+		}
+		else
+		{
+			$nisn = cek_input($_POST["nisn"]);
+		}
+
+
+
+
+		if (empty($_POST["nik"]))
+		{
+			$error_nik = "NIK tidak boleh kosong";
+		}
+		else
+		{
+			$nik = cek_input($_POST["nik"]);
+		}
+
+
+
+
+		if (empty($_POST["tempat"]))
+		{
+			$error_tempat = "Tempat Lahir tidak boleh kosong";
+		}
+		else
+		{
+			$tempat = cek_input($_POST["tempat"]);
+		}
+
+
+
+
+		if (empty($_POST["tgllahir"]))
+		{
+			$error_tgllahir = "Tanggal Lahir tidak boleh kosong";
+		}
+		else
+		{
+			$tgllahir = cek_input($_POST["tgllahir"]);
+		}
+
+
+
+		if (empty($_POST["noakta"]))
+		{
+			$error_noakta = "Nomor Akta tidak boleh kosong";
+		}
+		else
+		{
+			$noakta = cek_input($_POST["noakta"]);
+		}
+
+
+
+		if (empty($_POST["kwn"]))
+		{
+			$error_kwn = "Kewarganegaraan tidak boleh kosong";
+		}
+		else
+		{
+			$kwn = cek_input($_POST["kwn"]);
+		}
+
+
+
+		if (empty($_POST["agama"]))
+		{
+			$error_agama = "Agama tidak boleh kosong";
+		}
+		else
+		{
+			$agama = cek_input($_POST["agama"]);
+		}
+
+
+
+		if (empty($_POST["jmlhsdr"]))
+		{
+			$error_jmlhsdr = "Jumlah Saudara tidak boleh kosong";
+		}
+		else
+		{
+			$jmlhsdr = cek_input($_POST["jmlhsdr"]);
+		}
+
+
+
+		if (empty($_POST["bahasa"]))
+		{
+			$error_bahasa = "Bahasa Sehari-hari tidak boleh kosong";
+		}
+		else
+		{
+			$bahasa = cek_input($_POST["bahasa"]);
+		}
+
+
+
+		if (empty($_POST["berat"]))
+		{
+			$error_berat = "Berat Badan tidak boleh kosong";
+		}
+		else
+		{
+			$berat = cek_input($_POST["berat"]);
+		}
+
+
+
+		if (empty($_POST["tinggi"]))
+		{
+			$error_tinggi = "Tinggi Badan tidak boleh kosong";
+		}
+		else
+		{
+			$tinggi = cek_input($_POST["tinggi"]);
+		}
+
+
+
+		if (empty($_POST["alamat"]))
+		{
+			$error_alamat = "Alamat Rumah tidak boleh kosong";
+		}
+		else
+		{
+			$alamat = cek_input($_POST["alamat"]);
+		}
+
+
+
+		if (empty($_POST["tinggal"]))
+		{
+			$error_tinggal = "Alamat Tinggal tidak boleh kosong";
+		}
+		else
+		{
+			$tinggal = cek_input($_POST["tinggal"]);
+		}
+
+
+
+		if (empty($_POST["jarak"]))
+		{
+			$error_jarak = "Jarak tidak boleh kosong";
+		}
+		else
+		{
+			$jarak = cek_input($_POST["jarak"]);
+		}
+
+
+
+		if (empty($_POST["trans"]))
+		{
+			$error_trans = "Alat Transportasi tidak boleh kosong";
+		}
+		else
+		{
+			$trans = cek_input($_POST["trans"]);
+		}
+
+
+
+		if (empty($_POST["notelp"])) {
+				$error_notelp = "Nomor Telepon tidak boleh kosong";
+			}
+			else{
+				$telp=cek_input($_POST["notelp"]);
+			if (!is_numeric($notelp)) {
+				$error_notelp="Nomor Telepon hanya boleh angka";	
+			}
+		}
+
+
+
+
+		if (empty ($_POST["email"]))
+		{
+			$error_email = "Email tidak boleh kosong";
+		}
+		else 
+		{
+			$email = cek_input ($_POST["email"]);
+			if (!filter_var($email, FILTER_VALIDATE_EMAIL))
+			{
+				$error_email = "Format Email Invalid";
+			}
+		}
+
+
+
+		if (empty ($_POST ["ayah"]))
+		{
+			$error_ayah = "Nama Lengkap Ayah tidak boleh kosong";
+		}
+		else 
+		{
+			$ayah = cek_input ($_POST["ayah"]);
+			if (!preg_match("/^[a-zA-Z]*$/", $ayah))
+			{
+				$error_ayah = "Inputan Hanya boleh huruf dan spasi";
+			}
+		}
+
+
+
+		if (empty($_POST["nikayah"]))
+		{
+			$error_nikayah = "NIK Ayah tidak boleh kosong";
+		}
+		else
+		{
+			$nikayah = cek_input($_POST["nikayah"]);
+		}
+
+
+
+		if (empty($_POST["ibu"]))
+		{
+			$error_ibu = "Nama Lengkap Ibu tidak boleh kosong";
+		}
+		else
+		{
+			$ibu = cek_input($_POST["ibu"]);
+		}
+
+
+
+		if (empty($_POST["nikibu"]))
+		{
+			$error_nikibu = "NIK Ibu tidak boleh kosong";
+		}
+		else
+		{
+			$nikibu = cek_input($_POST["nikibu"]);
+		}
+
+
+
+		if (empty($_POST["kerjaayah"]))
+		{
+			$error_kerjaayah = "Pekerjaan Ayah tidak boleh kosong";
+		}
+		else
+		{
+			$kerjaayah = cek_input($_POST["kerjaayah"]);
+		}
+
+
+
+		if (empty($_POST["kerjaibu"]))
+		{
+			$error_kerjaibu = "Pekerjaan Ibu tidak boleh kosong";
+		}
+		else
+		{
+			$kerjaibu = cek_input($_POST["kerjaibu"]);
+		}
+
+
+
+		if (empty($_POST["tinggalayah"]))
+		{
+			$error_tinggalayah = "Alamat Tinggal Ayah tidak boleh kosong";
+		}
+		else
+		{
+			$tinggalayah = cek_input($_POST["tinggalayah"]);
+		}
+
+
+
+		if (empty($_POST["tinggalibu"]))
+		{
+			$error_tinggalibu = "Alamat Tinggal Ibu tidak boleh kosong";
+		}
+		else
+		{
+			$tinggalibu = cek_input($_POST["tinggalibu"]);
+		}
+
+
+
+		if (empty($_POST["noayah"])) {
+				$error_noayah = "Nomor Telepon Ayah tidak boleh kosong";
+			}
+			else{
+				$noayah=cek_input($_POST["noayah"]);
+			if (!is_numeric($noayah)) {
+				$error_noayah="Nomor Telepon hanya boleh angka";	
+			}
+		}
+
+
+
+		if (empty($_POST["noibu"])) {
+				$error_noibu = "Nomor Telepon Ibu tidak boleh kosong";
+			}
+			else{
+				$telp=cek_input($_POST["noibu"]);
+			if (!is_numeric($noibu)) {
+				$error_noibu="Nomor Telepon hanya boleh angka";	
+			}
+		}
+		
+		}
+	function cek_input ($data){  
+		$data = trim ($data);
+		$data = stripslashes($data);
+		$data = htmlspecialchars($data);
+		return $data;
+	}
+	?>
+
+	<div class="row">
+	<div class="col-md-12">
+	<div class="card">
+		<div class="card-header">
+			<h1> Form Peserta Didik </h1>
+		</div>
+
+		<h4> DATA PRIBADI </h4>
+		<div class="card-body">
+			<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+				<div class="form-group row">
+				<label for="namalengkap" class="col-sm-2 col-form-label"> 1. Nama Lengkap </label>
+				<div class="col-sm-10">
+					<input type="text" name="namalengkap" class="form-control <?php echo ($error_namalengkap !="" ? "is-invalid" : ""); ?>" id="namalengkap" placeholder="Nama Lengkap" value="<?php echo $namalengkap; ?>"><span class="warning"><?php echo $error_namalengkap;?></span>
+				</div>
+			</div>
+
+
+			<div class="form-group row">
+				<label for="namapanggil" class="col-sm-2 col-form-label"> 2. Nama Panggilan </label>
+				<div class="col-sm-10">
+					<input type="text" name="namapanggil" class="form-control <?php echo($error_namapanggil !="" ? "is-invalid" : ""); ?>" id="namapanggil" placeholder="Nama Panggilan" value="<?php echo $namapanggil; ?>"><span class="warning"><?php echo $error_namapanggil; ?></span>
+				</div>
+			</div>
+
+
+			<div class="form-group row">
+				<label for="jk" class="col-sm-2 col-form-label"> 3. Jenis Kelamin </label>
+				<div class="col-sm-10">
+					<input type="text" name="jk" class="form-control <?php echo($error_jk !="" ? "is-invalid" : ""); ?>" id="jk" placeholder="Jenis Kelamin" value="<?php echo $jk; ?>"><span class="warning"><?php echo $error_jk; ?></span>
+				</div>
+			</div>
+
+
+			<div class="form-group row">
+				<label for="nisn" class="col-sm-2 col-form-label"> 4. NISN </label>
+				<div class="col-sm-10">
+					<input type="text" name="nisn" class="form-control <?php echo($error_nisn !="" ? "is-invalid" : ""); ?>" id="nisn" placeholder="NISN" value="<?php echo $nisn; ?>"><span class="warning"><?php echo $error_nisn; ?></span>
+				</div>
+			</div>
+
+
+			<div class="form-group row">
+				<label for="nik" class="col-sm-2 col-form-label"> 5. NIK </label>
+				<div class="col-sm-10">
+					<input type="text" name="nik" class="form-control <?php echo($error_nik !="" ? "is-invalid" : ""); ?>" id="nik" placeholder="NIK" value="<?php echo $nik; ?>"><span class="warning"><?php echo $error_nik; ?></span>
+				</div>
+			</div>
+
+
+
+			<div class="form-group row">
+				<label for="tempat" class="col-sm-2 col-form-label"> 6. Tempat Lahir </label>
+				<div class="col-sm-10">
+					<input type="text" name="tempat" class="form-control <?php echo($error_tempat !="" ? "is-invalid" : ""); ?>" id="tempat" placeholder="Tempat Lahir" value="<?php echo $tempat; ?>"><span class="warning"><?php echo $error_tempat; ?></span>
+				</div>
+			</div>
+
+
+			<div class="form-group row">
+				<label for="tgllahir" class="col-sm-2 col-form-label"> 7. Tanggal Lahir </label>
+				<div class="col-sm-10">
+					<input type="text" name="tgllahir" class="form-control <?php echo($error_tgllahir !="" ? "is-invalid" : ""); ?>" id="tgllahir" placeholder="Tanggal Lahir" value="<?php echo $tgllahir; ?>"><span class="warning"><?php echo $error_tgllahir; ?></span>
+				</div>
+			</div>
+
+
+			<div class="form-group row">
+				<label for="noakta" class="col-sm-2 col-form-label"> 8. No.Registrasi Akta Lahir </label>
+				<div class="col-sm-10">
+					<input type="text" name="noakta" class="form-control <?php echo($error_noakta !="" ? "is-invalid" : ""); ?>" id="noakta" placeholder="No. Akta Kelahiran" value="<?php echo $noakta; ?>"><span class="warning"><?php echo $error_noakta; ?></span>
+				</div>
+			</div>
+
+
+
+			<div class="form-group row">
+				<label for="kwn" class="col-sm-2 col-form-label"> 9. Kewarganegaraan </label>
+				<div class="col-sm-10">
+					<input type="text" name="kwn" class="form-control <?php echo($error_kwn !="" ? "is-invalid" : ""); ?>" id="kwn" placeholder="WNI / WNA " value="<?php echo $kwn; ?>"><span class="warning"><?php echo $error_kwn; ?></span>
+				</div>
+			</div>
+
+
+			<div class="form-group row">
+				<label for="agama" class="col-sm-2 col-form-label"> 10. Agama </label>
+				<div class="col-sm-10">
+					<input type="text" name="agama" class="form-control <?php echo($error_agama !="" ? "is-invalid" : ""); ?>" id="agama" placeholder="Agama" value="<?php echo $agama; ?>"><span class="warning"><?php echo $error_agama; ?></span>
+				</div>
+			</div>
+
+
+			<div class="form-group row">
+				<label for="jmlhsdr" class="col-sm-2 col-form-label"> 11. Jumlah Saudara </label>
+				<div class="col-sm-10">
+					<input type="text" name="jmlhsdr" class="form-control <?php echo($error_jmlhsdr !="" ? "is-invalid" : ""); ?>" id="jmlhsdr" placeholder="Jumlah Saudara" value="<?php echo $jmlhsdr; ?>"><span class="warning"><?php echo $error_jmlhsdr; ?></span>
+				</div>
+			</div>
+
+
+			<div class="form-group row">
+				<label for="bahasa" class="col-sm-2 col-form-label"> 12. Bahasa Sehari-hari </label>
+				<div class="col-sm-10">
+					<input type="text" name="bahasa" class="form-control <?php echo($error_bahasa !="" ? "is-invalid" : ""); ?>" id="bahasa" placeholder="Bahasa yang digunakan Sehari-hari" value="<?php echo $bahasa; ?>"><span class="warning"><?php echo $error_bahasa; ?></span>
+				</div>
+			</div>
+
+
+			<div class="form-group row">
+				<label for="berat" class="col-sm-2 col-form-label"> 13. Berat Badan </label>
+				<div class="col-sm-10">
+					<input type="text" name="berat" class="form-control <?php echo($error_berat !="" ? "is-invalid" : ""); ?>" id="berat" placeholder="Berat Badan" value="<?php echo $berat; ?>"><span class="warning"><?php echo $error_berat; ?></span>
+				</div>
+			</div>
+
+
+			<div class="form-group row">
+				<label for="tinggi" class="col-sm-2 col-form-label"> 14. Tinggi Badan </label>
+				<div class="col-sm-10">
+					<input type="text" name="tinggi" class="form-control <?php echo($error_tinggi !="" ? "is-invalid" : ""); ?>" id="tinggi" placeholder="Tinggi Badan" value="<?php echo $tinggi; ?>"><span class="warning"><?php echo $error_tinggi; ?></span>
+				</div>
+			</div>
+
+
+
+			<div class="form-group row">
+				<label for="alamat" class="col-sm-2 col-form-label"> 15. Alamat Rumah </label>
+				<div class="col-sm-10">
+					<input type="text" name="alamat" class="form-control <?php echo($error_alamat !="" ? "is-invalid" : ""); ?>" id="alamat" placeholder="Alamat Rumah" value="<?php echo $alamat; ?>"><span class="warning"><?php echo $error_alamat; ?></span>
+				</div>
+			</div>
+
+
+			<div class="form-group row">
+				<label for="tinggal" class="col-sm-2 col-form-label"> 16. Alamat Tinggal </label>
+				<div class="col-sm-10">
+					<input type="text" name="tinggal" class="form-control <?php echo($error_tinggal !="" ? "is-invalid" : ""); ?>" id="tinggal" placeholder="Alamat Tinggal" value="<?php echo $tinggal; ?>"><span class="warning"><?php echo $error_tinggal; ?></span>
+				</div>
+			</div>
+
+
+			<div class="form-group row">
+				<label for="jarak" class="col-sm-2 col-form-label"> 17. Jarak Tinggal Ke Sekolah </label>
+				<div class="col-sm-10">
+					<input type="text" name="jarak" class="form-control <?php echo($error_jarak !="" ? "is-invalid" : ""); ?>" id="jarak" placeholder="Jarak Tinggal Ke Sekolah" value="<?php echo $jarak; ?>"><span class="warning"><?php echo $error_jarak; ?></span>
+				</div>
+			</div>
+
+
+			<div class="form-group row">
+				<label for="trans" class="col-sm-2 col-form-label"> 18. Alat Transportasi </label>
+				<div class="col-sm-10">
+					<input type="text" name="trans" class="form-control <?php echo($error_trans !="" ? "is-invalid" : ""); ?>" id="trans" placeholder="Alat Transportasi" value="<?php echo $trans; ?>"><span class="warning"><?php echo $error_trans; ?></span>
+				</div>
+			</div>
+
+
+			<div class="form-group row">
+				<label for="notelp" class="col-sm-2 col-form-label"> 19. Nomor Telepon </label>
+				<div class="col-sm-10">
+					<input type="text" name="notelp" class="form-control <?php echo($error_notelp !="" ? "is-invalid" : ""); ?>" id="notelp" placeholder="No. Telepon" value="<?php echo $notelp; ?>"><span class="warning"><?php echo $error_notelp; ?></span>
+				</div>
+			</div>
+
+
+			<div class="form-group row">
+				<label for="email" class="col-sm-2 col-form-label"> 20. Email </label>
+				<div class="col-sm-10">
+					<input type="text" name="email" class="form-control <?php echo($error_email !="" ? "is-invalid" : ""); ?>" id="email" placeholder="email" value="<?php echo $email; ?>"><span class="warning"><?php echo $error_email; ?></span>
+				</div>
+			</div>
+
+		
+	</div>
+	</div>		
+	</div>
+	</div>
+
+	<div class="row">
+	<div class="col-md-12">
+	<div class="card">
+
+		<h4> DATA ORANG TUA / WALI </h4>
+		<div class="card-body">
+			<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> <div class="form-group row">
+				<label for="ayah" class="col-sm-2 col-form-label"> 21. Nama Lengkap Ayah </label>
+				<div class="col-sm-10">
+					<input type="text" name="ayah" class="form-control <?php echo ($error_ayah !="" ? "is-invalid" : ""); ?>" id="ayah" placeholder="Nama Lengkap Ayah" value="<?php echo $ayah; ?>"><span class="warning"><?php echo $error_ayah;?></span>
+				</div>
+			</div>
+
+
+			<div class="form-group row">
+				<label for="nikayah" class="col-sm-2 col-form-label"> 22. NIK Ayah </label>
+				<div class="col-sm-10">
+					<input type="text" name="nikayah" class="form-control <?php echo($error_nikayah !="" ? "is-invalid" : ""); ?>" id="nikayah" placeholder="NIK Ayah" value="<?php echo $nikayah; ?>"><span class="warning"><?php echo $error_nikayah; ?></span>
+				</div>
+			</div>
+
+
+
+			<div class="form-group row">
+				<label for="ibu" class="col-sm-2 col-form-label"> 23. Nama Lengkap Ibu </label>
+				<div class="col-sm-10">
+					<input type="text" name="ibu" class="form-control <?php echo($error_ibu !="" ? "is-invalid" : ""); ?>" id="ibu" placeholder="Nama Lengkap Ibu" value="<?php echo $ibu; ?>"><span class="warning"><?php echo $error_ibu; ?></span>
+				</div>
+			</div>
+
+
+			<div class="form-group row">
+				<label for="nikibu" class="col-sm-2 col-form-label"> 24. NIK Ibu </label>
+				<div class="col-sm-10">
+					<input type="text" name="nikibu" class="form-control <?php echo($error_nikibu !="" ? "is-invalid" : ""); ?>" id="nikibu" placeholder="NIK Ibu" value="<?php echo $nikibu; ?>"><span class="warning"><?php echo $error_nikibu; ?></span>
+				</div>
+			</div>
+
+
+			<div class="form-group row">
+				<label for="kerjaayah" class="col-sm-2 col-form-label"> 25. Pekerjaan Ayah </label>
+				<div class="col-sm-10">
+					<input type="text" name="kerjaayah" class="form-control <?php echo($error_kerjaayah !="" ? "is-invalid" : ""); ?>" id="kerjaayah" placeholder="Pekerjaan Ayah" value="<?php echo $kerjaayah; ?>"><span class="warning"><?php echo $error_kerjaayah; ?></span>
+				</div>
+			</div>
+
+
+			<div class="form-group row">
+				<label for="kerjaibu" class="col-sm-2 col-form-label"> 26. Pekerjaan Ibu </label>
+				<div class="col-sm-10">
+					<input type="text" name="kerjaibu" class="form-control <?php echo($error_kerjaibu !="" ? "is-invalid" : ""); ?>" id="kerjaibu" placeholder="Pekerjaan Ibu" value="<?php echo $kerjaibu; ?>"><span class="warning"><?php echo $error_kerjaibu; ?></span>
+				</div>
+			</div>
+
+
+			<div class="form-group row">
+				<label for="tinggalayah" class="col-sm-2 col-form-label"> 27. Alamat Tinggal Ayah </label>
+				<div class="col-sm-10">
+					<input type="text" name="tinggalayah" class="form-control <?php echo($error_tinggalayah !="" ? "is-invalid" : ""); ?>" id="tinggalayah" placeholder="Alamat Tinggal Ayah" value="<?php echo $tinggalayah; ?>"><span class="warning"><?php echo $error_tinggalayah; ?></span>
+				</div>
+			</div>
+
+
+			<div class="form-group row">
+				<label for="tinggalibu" class="col-sm-2 col-form-label"> 28. Alamat Tinggal Ibu </label>
+				<div class="col-sm-10">
+					<input type="text" name="tinggalibu" class="form-control <?php echo($error_tinggalibu !="" ? "is-invalid" : ""); ?>" id="tinggalibu" placeholder="Alamat Tinggal Ibu" value="<?php echo $tinggalibu; ?>"><span class="warning"><?php echo $error_tinggalibu; ?></span>
+				</div>
+			</div>
+
+
+			<div class="form-group row">
+				<label for="noayah" class="col-sm-2 col-form-label"> 29. No. Telepon Ayah </label>
+				<div class="col-sm-10">
+					<input type="text" name="noayah" class="form-control <?php echo($error_noayah !="" ? "is-invalid" : ""); ?>" id="noayah" placeholder="Nomor Telepon Ayah" value="<?php echo $noayah; ?>"><span class="warning"><?php echo $error_noayah; ?></span>
+				</div>
+			</div>
+
+
+			<div class="form-group row">
+				<label for="noibu" class="col-sm-2 col-form-label"> 30. No. Telepon Ibu </label>
+				<div class="col-sm-10">
+					<input type="text" name="noibu" class="form-control <?php echo($error_noibu !="" ? "is-invalid" : ""); ?>" id="noibu" placeholder="Nomor Telepon Ibu" value="<?php echo $noibu; ?>"><span class="warning"><?php echo $error_noibu; ?></span>
+				</div>
+			</div>
+<br>
+			<h5><font color="red"> NB : Bila ada yang perlu dikosongkan harap mengisi "TIDAK ADA" / "TIDAK PUNYA" </font></h5>
+			<br>
+
+
+			<div class="form-group row">
+				<div class="col-sm-10">
+					<button type="kirim" class="btn btn-primary"> Kirim </button>
+				</div>
+			</div>
+		</form>
+</div>
+	</div>		
+	</div>
+	</div>
+</body>
+</html>
